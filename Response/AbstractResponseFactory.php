@@ -18,7 +18,7 @@ abstract class AbstractResponseFactory
 
     public function create($filename, $contentType = 'application/octet-stream', $options = array())
     {
-        $this->fullFilename = $this->baseDir . '/' . $filename;
+        $this->fullFilename = ($this->baseDir === null) ? $filename : "$this->baseDir/$filename";
         $this->contentType = $contentType;
         $this->options = $options;
 
